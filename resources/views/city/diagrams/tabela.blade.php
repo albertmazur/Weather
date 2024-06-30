@@ -3,10 +3,10 @@
         <thead>
             @section("headerTable")
             <tr>
-                <th>Lp</th>
-                <th>Tematura</th>
-                <th>Wilgotność</th>
-                <th>Kiedy</th>
+                <th>{{__("content.list.lp")}}</th>
+                <th>{{__("content.temperature")}}</th>
+                <th>{{__("content.humidity")}}</th>
+                <th>{{__("content.list.when")}}</th>
             </tr>
             @endsection
             @yield("headerTable")

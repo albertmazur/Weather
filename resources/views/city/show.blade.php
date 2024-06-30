@@ -4,20 +4,20 @@
 <div>
     <div>
         <h3>{{$city->name}}</h3>
-        <p>Status:
-            @if ($city->state!=null) {{ $city->state}}
-            @else Brak
+        <p>{{__("content.list.status")}}:
+            @if ($city->state!=null) {{$city->state}}
+            @else {{__("content.none")}}
             @endif
         </p>
-        <p>Kraj: {{$city->country}}</p>
-        <p>Współrzedne: {{$city->coordLon}}, {{$city->coordLat}}</p>
+        <p>{{__("content.list.country")}}: {{$city->country}}</p>
+        <p>{{__("content.list.coordinates")}}: {{$city->coordLon}}, {{$city->coordLat}}</p>
     </div>
     @if ($userHasCity)
         @include("user.button.delete")
     @else
         @include("user.button.add")
     @endif
-    <a class="btn btn-secondary mb-2" role="button" href="{{route("city.index")}}">Lista miast</a>
+    <a class="btn btn-secondary mb-2" role="button" href="{{route("city.index")}}">{{__("content.city_list")}}</a>
 </div>
 
 <div class="d-flex flex-column">

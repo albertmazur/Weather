@@ -20,8 +20,7 @@ class CityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
+    public function index(Request $request){
         $name = $request->get("nameSearch");
 
         $resultPaginator = $this->cityRepository->filterBy($name);
@@ -39,7 +38,6 @@ class CityController extends Controller
     public function show(int $id)
     {
         $city = $this->cityRepository->get($id);
-
         return view("city.show", ["city" => $city, "userHasCity" => Auth::user()->hasCity($id), "weathers" => $city->weathers()->orderBy("created_at")->get()]);
     }
 }

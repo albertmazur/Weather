@@ -1,4 +1,4 @@
-@extends('errors::minimal')
+@extends('layouts.app')
 
 @section('title', __('Payment Required'))
 @section('code', '402')

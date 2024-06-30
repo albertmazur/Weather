@@ -5,7 +5,7 @@
                 {{__('content.temperature')}}: @isset($city->currentWeather()->temperature) {{$city->currentWeather()->temperature}} K @else {{__('content.none')}} @endisset <br>
                 {{__('content.humidity')}}: @isset($city->currentWeather()->humidity) {{$city->currentWeather()->humidity}} % @else {{__('content.none')}} @endisset
             </p>
-        <a href="{{route("city.show", $city->id)}}" role="button" class="btn btn-primary mb-3">Szczegóły</a>
+        <a href="{{route("city.show", $city->id)}}" role="button" class="btn btn-primary mb-3">{{__('content.list.details')}}</a>
       @include("user.button.delete")
     </div>
   </div>

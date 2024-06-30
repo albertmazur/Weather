@@ -22,8 +22,13 @@ return [
         'status' => 'Status',
         'country' => 'Country',
         'coordinate' => 'Coordinate',
+        'coordinates' => 'Coordinates',
         'details' => 'Details',
         'when' => 'When',
         'search' => 'Search'
+    ],
+    'alert' =>[
+        'add' => 'Added to the list',
+        'not_add' => 'Nie można już dodać',
     ]
 ];

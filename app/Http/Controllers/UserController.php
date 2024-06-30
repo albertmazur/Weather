@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MyCityRequest;
 use App\Repository\CityRepository;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
-use PharIo\Manifest\Url;
 
 class UserController extends Controller
 {
@@ -44,11 +41,11 @@ class UserController extends Controller
 
         if($check){
            $p ="success";
-           $message = "Dodano do listy";
+           $message = __("content.alert.add");
         }
         else{
             $p = "error";
-            $message = "Nie można już dodać";
+            $message = __("content.alert.not_add");
         }
 
         return back()->with($p, $message);
