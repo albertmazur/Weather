@@ -2,24 +2,24 @@
 
 @section("content")
 <div>
-    <h1>Lista miast</h1>
+    <h1>{{__('content.city_list')}}</h1>
     <form action="{{route("city.index")}}" class="border p-2" method="get">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="nameSearch" placeholder="Nazwa" value="{{ $nameSearch ?? '' }}">
-            <label for="nameSearch">Nazwa</label>
+            <input type="text" class="form-control" name="nameSearch" placeholder="{{__('content.list.name')}}" value="{{ $nameSearch ?? '' }}">
+            <label for="nameSearch">{{__('content.list.name')}}</label>
         </div>
-        <button class="btn btn-info" type="submit">Szukaj</button>
+        <button class="btn btn-info" type="submit">{{__('content.list.search')}}</button>
     </form>
     <table class="table table-striped">
         <thead>
             @section("headerTable")
             <tr>
-                <th>Lp</th>
-                <th>Nazwa</th>
-                <th>Status</th>
-                <th>Wspołrzedna X</th>
-                <th>Wspołrzedna Y</th>
-                <th>Kraj</th>
+                <th>{{__('content.list.lp')}}</th>
+                <th>{{__('content.list.name')}}</th>
+                <th>{{__('content.list.status')}}</th>
+                <th>{{__('content.list.coordinate')}} X</th>
+                <th>{{__('content.list.coordinate')}} Y</th>
+                <th>{{__('content.list.country')}}</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -34,7 +34,7 @@
                             <td>{{ $city->coordLon}}</td>
                             <td>{{ $city->coordLat}}</td>
                             <td>{{ $city->country}}</td>
-                            <td><a class="btn btn-secondary" role="button" href="{{ route("city.show", ["cityId" =>$city->id])}}">Szczegóły</a></td>
+                            <td><a class="btn btn-secondary" role="button" href="{{ route("city.show", ["cityId" =>$city->id])}}">{{__('content.list.details')}}</a></td>
 
                             @php
                                 $jest = false;

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Weather') }} @hasSection('title') - @yield('title') @endif</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -21,7 +21,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm p-2">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Pogoda') }}
+                    {{ config('app.name', 'Weather') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -31,9 +31,9 @@
                     <!-- Left Side Of Navbar -->
                     @auth
                     <ul class="navbar-nav me-auto">
-                        <li><a class="nav-link" href="{{route("city.index") }}">Lista miast</a></li>
+                        <li><a class="nav-link" href="{{route("city.index") }}">{{__('content.city_list')}}</a></li>
 
-                        <li><a class="nav-link" href="{{ route("user.my.cities")}}">Moja lista</a></li>
+                        <li><a class="nav-link" href="{{ route("user.my.cities")}}">{{__('content.my_list')}}</a></li>
                     </ul>
                     @endauth
 
@@ -56,21 +56,11 @@
                         @else
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>{{ Auth::user()->name }}</a>
 
                                 <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-
-                                    <a class="dropdown-item " href="{{ route('user.show') }}">
-                                        {{ __('Setting') }}
-                                    </a>
-
-                                    <a class="dropdown-item " href="{{ route('user.show', ["userId" => Auth::id()]) }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    <a class="dropdown-item " href="{{ route('user.show') }}">{{ __('Setting') }}</a>
+                                    <a class="dropdown-item " href="{{ route('user.show', ["userId" => Auth::id()]) }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -86,6 +76,13 @@
         <main class="container py-4">
             @include('layouts.shaderd.messages')
             @yield('content')
+
+            @hasSection('code')
+            <div class="d-flex flex-column">
+                <p class="text-center fs-1">@yield('code')</p>
+                <p class="text-center fs-2">@yield('message')</p>
+            </div>
+            @endif
         </main>
     </div>
     <script type="text/javascript">

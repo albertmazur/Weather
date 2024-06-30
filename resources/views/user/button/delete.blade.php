@@ -2,5 +2,5 @@
     @csrf
     @method("delete")
     <input type="hidden" name="cityId" value="{{$city->id}}">
-    <button type="submit" class="btn btn-danger">Usuń z mojej listy</button>
+    <button type="submit" class="btn btn-danger">{{__('content.button.remove')}}</button>
 </form>

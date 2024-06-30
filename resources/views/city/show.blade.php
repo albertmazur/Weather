@@ -13,20 +13,9 @@
         <p>Współrzedne: {{$city->coordLon}}, {{$city->coordLat}}</p>
     </div>
     @if ($userHasCity)
-        {{-- <form action="{{ route("user.remove")}}" method="post">
-            @csrf
-            @method("delete")
-            <input type="hidden" name="cityId" value="{{$city->id}}">
-            <button type="submit" class="btn btn-danger">Usuń z mojej listy</button>
-        </form> --}}
         @include("user.button.delete")
     @else
-    {{-- <form action="{{ route("user.add")}}" method="post">
-        @csrf
-        <input type="hidden" name="cityId" value="{{$city->id}}">
-        <button type="submit" class="btn btn-primary">Dodaj do mojej listy</button>
-    </form> --}}
-    @include("user.button.add")
+        @include("user.button.add")
     @endif
     <a class="btn btn-secondary mb-2" role="button" href="{{route("city.index")}}">Lista miast</a>
 </div>

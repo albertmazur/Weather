@@ -2,6 +2,6 @@
 
 @section("content")
 <div class="d-flex justify-content-center">
-    <h1>Witaj w aplikacji</h1>
+    <h1>{{__('content.start')}}</h1>
 </div>
 @endsection

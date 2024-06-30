@@ -4,9 +4,9 @@
 <div>
     <div>
         <h3>{{$user->name}} {{$user->lastName}}</h3>
-        <p>Email: {{$user->email}}</p>
-        <p>Data utworzenia konta: {{$user->created_at}}</p>
+        <p>{{__('content.email')}}: {{$user->email}}</p>
+        <p>{{__('content.date_account')}}: {{$user->created_at}}</p>
     </div>
-    <a href="{{route("home")}}">Główna strona</a>
+    <a href="{{route("home")}}">{{__('content.home')}}</a>
 </div>
 @endsection

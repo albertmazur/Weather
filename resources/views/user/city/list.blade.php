@@ -2,7 +2,7 @@
 
 @section("content")
 <div>
-    <h1>Moja lista miast</h1>
+    <h1>{{__("content.my_list_cities")}}</h1>
     <div class="row">
         @foreach ($cities as $city)
             @include("user.city.card")
